@@ -4,7 +4,7 @@
 angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
-.constant('ApiBasePath', "http://davids-restaurant.herokuapp.com")
+.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com")
 .directive('resultList', ResultListDirective);
 
 
@@ -41,13 +41,10 @@ function NarrowItDownController($scope ,MenuSearchService) {
     promise.then(function (response) {
       menu.foundResults = response;
         menu.errorMessage ="";
-      console.log(response);
     })
     .catch(function (error) {
       menu.foundResults= "";
         menu.errorMessage = "Nothing found!";
-        console.log(error);
-
     });
   }
 }
