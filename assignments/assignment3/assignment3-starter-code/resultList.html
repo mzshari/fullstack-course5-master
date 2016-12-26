@@ -1,0 +1,9 @@
+<table>
+<tr ng-repeat="menu_item in menu.items">
+  <td style="width:15%"> <div > <br/> {{ menu_item.name }}</div></td>
+  <td style="width:5%"> <div > <br/> {{ menu_item.short_name }}</div></td>
+  <td style="width:65%"> <div > <br/> {{ menu_item.description }}</div></td>
+  <td style="width:15%"><button ng-click="menu.onRemove({index: $index});">Don't want this one!</button></td>
+</tr>
+</table>
+  <div ng-if="menu.errorMessage" class="error">{{menu.errorMessage}}</div>
