@@ -1,0 +1,18 @@
+
+<table>
+  <tr>
+    <td>
+      <b>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Main Categories:
+      </b>
+      <ul>
+        <li ng-repeat="cat in $ctrl.categories"  ui-sref="categories.items({itemShortName: $ctrl.categories[$index].short_name})">
+          {{ cat.name }}
+        </li>
+      </ul>
+    </td>
+    <td>
+      <ui-view></ui-view>
+    </td>
+  </tr>
+</table>
