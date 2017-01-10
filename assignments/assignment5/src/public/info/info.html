@@ -1,0 +1,22 @@
+<div class="container">
+  <h2 id="info-title" class="text-center">My Information</h2>
+
+  <div id="info" ng-if="infoCtrl.user">
+    First Name: {{ infoCtrl.user.firstname}} <br>
+      Last Name: {{ infoCtrl.user.lastname}} <br>
+      Email: {{ infoCtrl.user.email}} <br>
+      Phone: {{ infoCtrl.user.phone }}<br>
+      Favorite Dish: {{ infoCtrl.user.favoritetitle }}
+      <img class="img-responsive" width="250" height="150"
+           ng-src="{{infoCtrl.basePath}}/images/{{infoCtrl.user.favorite}}.jpg" alt="{{infoCtrl.user.favorite}}">
+           {{ infoCtrl.user.favoritedesc }}
+
+    </div>
+
+    <div ng-if="!infoCtrl.user">
+      You did not sign up yet. Please sign up fisrt:
+      <a ui-sref="public.signup">
+      <class="hidden-xs"> Sign Up</a>
+    </div>
+
+</div>
