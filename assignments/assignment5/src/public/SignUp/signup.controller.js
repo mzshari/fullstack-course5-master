@@ -4,16 +4,27 @@
 angular.module('public')
 .controller('SignupController', SignupController);
 SignupController.$inject = ['MenuService'];
-
+var completed = false;
 function SignupController(MenuService) {
   var signupCtrl = this;
+  // signupCtrl.completed = true;
 
 signupCtrl.submit = function () {
-  var isFavoriteValid = MenuService.checkDishNumber(signupCtrl.user.favorite);
-  signupCtrl.favoriteError = MenuService.getResult();
-signupCtrl.completed = !signupCtrl.favoriteError;
-if (signupCtrl.completed)
-MenuService.setUserInfo(signupCtrl.user);
+//  signupCtrl.completed = MenuService.setUserInfo(signupCtrl.user);
+
+  MenuService.setUserInfo(signupCtrl.user).then(function(){
+      var result =  MenuService.getResult();
+      if (result)
+      {
+        signupCtrl.completed = true;
+        signupCtrl.favoriteError = false;
+
+      }
+      else {
+        signupCtrl.completed = false;
+        signupCtrl.favoriteError = true;
+        }
+  })
 
 };
 }
